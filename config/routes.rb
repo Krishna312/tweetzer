@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
   root 'pages#feed'
 
-  resources :tweets
-  resources :tweets
+  resources :tweets do
+  member do
+    put "like", to: "tweets#upvote"
+    put "dislike", to: "tweets#downvote"
+  end
+end
+  # resources :tweets
   # root 'tweets#index'
   #tweets is controller index is method
   devise_for :users

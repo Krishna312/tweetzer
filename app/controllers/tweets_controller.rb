@@ -1,5 +1,5 @@
 class TweetsController < ApplicationController
-  before_action :set_tweet, only: [:show, :edit, :update, :destroy]
+  before_action :set_tweet, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
 
   # GET /tweets
   # GET /tweets.json
@@ -25,7 +25,10 @@ class TweetsController < ApplicationController
   # POST /tweets.json
   def create
     @tweet = Tweet.new(tweet_params)
-@tweet.user_id = current_user if current_user
+
+#Set the tweets user id to be that of the current user. Implemented to add extra security.
+
+@tweet.user_id = current_user.id if current_user
     respond_to do |format|
       if @tweet.save
         format.html { redirect_to @tweet, notice: 'Tweet was successfully created.' }
@@ -59,6 +62,18 @@ class TweetsController < ApplicationController
       format.html { redirect_to tweets_url, notice: 'Tweet was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def upvote
+    # @tweet = Tweet.find(params[:id])
+    @tweet.upvote_by current_user
+    redirect_to tweets_path
+  end
+
+  def downvote
+    # @tweet = Tweet.find(params[:id])
+    @tweet.downvote_by current_user
+    redirect_to tweets_path
   end
 
   private

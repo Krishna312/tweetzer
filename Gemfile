@@ -30,6 +30,8 @@ gem 'font-awesome-sass'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
+#use acts_as_votable to enable likes and following for our users.
+gem 'acts_as_votable'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
