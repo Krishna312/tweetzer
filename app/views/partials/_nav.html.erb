@@ -7,11 +7,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <!-- <a class="navbar-brand" href="#">Tweetzer</a> -->
+          <%= link_to "Tweetzer", root_path, class: "navbar-brand"%>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
+            <!-- <li class="active"><a href="#">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
             <li class="dropdown">
@@ -23,21 +24,29 @@
                 <li role="separator" class="divider"></li>
                 <li class="dropdown-header">Nav header</li>
                 <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
+                <li><a href="#">One more separated link</a></li> -->
               </ul>
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
+
             <% if user_signed_in? %>
     <li>
     <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
     </li>
+    <li>
+    <%= link_to('Edit registration', edit_user_registration_path) %>
+    </li>
+    <li><a href = "#">Tweet</a></li>
   <% else %>
     <li>
     <%= link_to('Login', new_user_session_path)  %>
     </li>
+    <li>
+    <%= link_to('Register', new_user_registration_path)  %>
+    </li>
   <% end %>
-  <% if user_signed_in? %>
+  <!-- <% if user_signed_in? %>
   <li>
   <%= link_to('Edit registration', edit_user_registration_path) %>
   </li>
@@ -45,7 +54,7 @@
   <li>
   <%= link_to('Register', new_user_registration_path)  %>
   </li>
-<% end %>
+<% end %> -->
           </ul>
         </div><!--/.nav-collapse -->
       </div>
