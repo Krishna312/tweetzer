@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :profiles
+  get "hashtags/:hashtag",   to: "hashtags#show",      as: :hashtag
+  get "hashtags",            to: "hashtags#index",     as: :hashtags
   root 'pages#feed'
 
   resources :tweets do

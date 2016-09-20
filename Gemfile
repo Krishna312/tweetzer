@@ -29,8 +29,12 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem "font-awesome-rails"
 # Use Unicorn as the app server
 # gem 'unicorn'
+gem 'carrierwave', '~> 0.10.0'
+gem 'mini_magick', '~> 4.3'
+#simple hashtag is used to auto generate hashtag linkages in  our tweets.
+gem 'simple_hashtag'
 
-#use acts_as_votable to enable likes and following for our users.
+#use acts_as_votable to enable likes for our users.
 gem 'acts_as_votable'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
